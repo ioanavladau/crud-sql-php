@@ -11,8 +11,6 @@
     $stmt->execute();
     $aRows = $stmt->fetchAll();
 
-    $jResponse = new stdClass();
-
     if( count($aRows) == 0 ){
       echo '[]';
       exit;

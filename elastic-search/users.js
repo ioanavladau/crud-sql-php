@@ -16,7 +16,7 @@
         let aUsers = JSON.parse(tData);
         console.log(aUsers); // it logs the object with names or 0 if there are no names found
 
-        document.getElementById("displayName").innerHTML = '';
+        $("#displayName").empty();
 
         // check if there are any names to show
         if(aUsers.length == 0){
@@ -25,9 +25,7 @@
 
         aUsers.forEach((user)=>{
           // show names in #displayName div
-            var cDiv = document.createElement("div");
-            cDiv.innerHTML = user;
-            document.getElementById("displayName").appendChild(cDiv);
+          $('#displayName').append('<div>'+user+'</div>');    
         })
       })
       .fail(()=>{
