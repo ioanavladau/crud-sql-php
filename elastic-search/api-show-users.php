@@ -14,19 +14,20 @@
     $jResponse = new stdClass();
 
     if( count($aRows) == 0 ){
-      echo 0;
+      echo '[]';
       exit;
     }
+
     $aSearchedUsers = [];
-    $jUsers = new stdClass();
+    // $jUsers = new stdClass();
     foreach($aRows as $iIndex=>$aRow){
       // echo '<div>'.$aRow['name'].'</div>'; // FETCH_ASSOC
       // array_push($aSearchedUsers, $aRow->name);
       // $jSearchedUsers = json_encode($aSearchedUsers);
       // echo json_encode($aSearchedUsers);
-      $jUsers->$iIndex = $aRow->name;
+      array_push($aSearchedUsers, $aRow->name);
     }
-    echo json_encode($jUsers);
+    echo json_encode($aSearchedUsers);
   
   }catch(PDOException $ex){
     echo $ex;
